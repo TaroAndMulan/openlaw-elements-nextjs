@@ -132,10 +132,7 @@ export class DatePicker extends React.PureComponent<Props, State> {
     });
   }
 
-  shouldShowIOSLabel() {
-    const isIOS = !!window.navigator.platform && /iPad|iPhone|iPod/.test(window.navigator.platform);
-    return isIOS && !this.props.savedValue;
-  }
+
 
   render() {
     const { cleanName, description, inputExtraText, inputProps, variableType } = this.props;
@@ -149,7 +146,7 @@ export class DatePicker extends React.PureComponent<Props, State> {
         <label className={`${css.fieldLabel}`}>
           <span className={`${css.fieldLabelText}`}>{description}</span>
           
-          {this.shouldShowIOSLabel() && (
+          {(
             // https://flatpickr.js.org/mobile-support/
             <span className={css.fieldLabelIos}>{description}</span>
           )}
